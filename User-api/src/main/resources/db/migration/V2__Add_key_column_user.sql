@@ -1,0 +1,1 @@
+ALTER TABLE users.usuario ADD COLUMN key VARCHAR(100);

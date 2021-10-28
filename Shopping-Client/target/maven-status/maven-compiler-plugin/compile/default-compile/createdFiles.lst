@@ -1,0 +1,10 @@
+com\application\dto\ItemDTO.class
+com\application\dto\ShoppingDTO.class
+com\application\dto\ProductDTO.class
+com\application\exception\ProductNotFoundException.class
+com\application\exception\CategoryNotFoundException.class
+com\application\dto\CategoryDTO.class
+com\application\dto\ErrorDTO.class
+com\application\dto\ReportDTO.class
+com\application\dto\UserDTO.class
+com\application\exception\UserNotFoundException.class
