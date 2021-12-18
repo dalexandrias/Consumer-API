@@ -1,10 +1,11 @@
 package com.application.service;
 
 import com.application.dto.DTOConverter;
+import com.application.dto.UserDTO;
+import com.application.exception.CpfAlreadyRegisteredException;
+import com.application.exception.UserNotFoundException;
 import com.application.model.User;
 import com.application.repository.UserRepository;
-import com.application.dto.UserDTO;
-import com.application.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,10 @@ public class UserService {
     }
 
     public UserDTO save(UserDTO userDTO) {
+
+        if (userRepository.findByCpf(userDTO.getCpf()) != null) {
+            throw new CpfAlreadyRegisteredException();
+        }
         userDTO.setKey(UUID.randomUUID().toString());
         userDTO.setDataCadastro(new Date());
         User user = userRepository.save(User.convert(userDTO));

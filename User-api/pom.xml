@@ -9,11 +9,12 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.application</groupId>
-	<artifactId>User-api</artifactId>
+	<artifactId>user-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<description>Desenvolvimento de 3 serviços para integração de clientes, produtos e vendas.</description>
 	<properties>
 		<java.version>11</java.version>
+		<docker.image.prefix>loja</docker.image.prefix>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -56,6 +57,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.9</version>
+				<configuration>
+					<repository>${docker.image.prefix}/${project.artifactId}</repository>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
